@@ -4,14 +4,13 @@
 name: Maven Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - master
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -22,10 +21,9 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B javadoc:jar source:jar package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
-        VERSION: ${{ github.event.release.tag_name }}
