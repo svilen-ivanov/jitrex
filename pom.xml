@@ -22,7 +22,7 @@
 
     <groupId>com.humio</groupId>
     <artifactId>jitrex</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>${env.GIT_SHA8}-SNAPSHOT</version>
     <inceptionYear>2019</inceptionYear>
     <scm>
         <connection>scm:git:https://github.com/humio/jitrex</connection>
@@ -69,8 +69,8 @@
     <distributionManagement>
         <repository>
             <id>github</id>
-            <name>Humio Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/humio/jitrex</url>
+            <name>Humio Apache Maven Packages / Svilen repo</name>
+            <url>https://maven.pkg.github.com/svilen-ivanov/jitrex</url>
         </repository>
     </distributionManagement>
 </project>
