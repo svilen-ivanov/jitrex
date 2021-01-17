@@ -9,8 +9,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    env:
-      GIT_SHA8: ${GITHUB_SHA::8}
 
     steps:
       - uses: actions/checkout@v1
